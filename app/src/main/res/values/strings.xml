@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">Baking Time</string>
+    <plurals name="item_recipe_servings">
+        <item quantity="one">%s Serving</item>
+        <item quantity="other">%s Servings</item>
+    </plurals>
+    <plurals name="item_recipe_ingredients">
+        <item quantity="one">%s Ingredient</item>
+        <item quantity="other">%s Ingredients</item>
+    </plurals>
+    <plurals name="item_recipe_steps">
+        <item quantity="one">%s Step</item>
+        <item quantity="other">%s Steps</item>
+    </plurals>
 </resources>
