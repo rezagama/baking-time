@@ -5,4 +5,5 @@ package com.example.bakingtime.deps;
  */
 
 public interface BakingDepsProvider {
+    BakingDeps provideAppDependencies();
 }

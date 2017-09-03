@@ -5,4 +5,9 @@ package com.example.bakingtime.network;
  */
 
 public class NetworkConfig {
+    public String baseUrl;
+
+    public NetworkConfig(String baseUrl) {
+        this.baseUrl = baseUrl;
+    }
 }
