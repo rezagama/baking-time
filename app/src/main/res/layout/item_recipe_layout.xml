@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.bakingtime.home.viewmodel.RecipeItemViewModel" />
+    </data>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dimen_margin_medium">
+        <LinearLayout android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dimen_padding_long">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:text="@{viewModel.recipeName}"
+                    android:textColor="@color/colorTextPrimary"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.50"
+                    android:layout_height="wrap_content"
+                    tools:text="Recipe Name"/>
+                <TextView
+                    android:text="@{viewModel.servingsCount}"
+                    android:textColor="@color/colorTextPrimary"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.50"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    tools:text="5 Servings"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:text="@{viewModel.ingredientsCount}"
+                    android:textColor="@color/colorTextPrimary"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.50"
+                    android:layout_height="wrap_content"
+                    tools:text="7 Ingredients"/>
+                <TextView
+                    android:text="@{viewModel.stepsCount}"
+                    android:textColor="@color/colorTextPrimary"
+                    android:layout_width="0dp"
+                    android:layout_weight="0.50"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    tools:text="11 Steps"/>
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+</layout>

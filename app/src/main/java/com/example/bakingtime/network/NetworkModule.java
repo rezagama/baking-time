@@ -2,7 +2,6 @@ package com.example.bakingtime.network;
 
 import android.content.Context;
 
-import com.example.bakingtime.services.BakingService;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -17,7 +16,7 @@ import dagger.Provides;
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 /**
@@ -72,7 +71,7 @@ public class NetworkModule {
                                      Gson gson) {
         return new Retrofit.Builder()
                 .addConverterFactory(GsonConverterFactory.create(gson))
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .baseUrl(networkConfig.baseUrl)
                 .client(okHttpClient)
                 .build();
@@ -83,12 +82,5 @@ public class NetworkModule {
     @SuppressWarnings("unused")
     public NetworkService providesNetworkService(Retrofit retrofit){
         return retrofit.create(NetworkService.class);
-    }
-
-    @Provides
-    @Singleton
-    @SuppressWarnings("unused")
-    public BakingService providesMovieService(NetworkService service){
-        return new BakingService(service);
     }
 }

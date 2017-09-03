@@ -8,19 +8,19 @@ import android.os.Parcelable;
  */
 
 public class Ingredient implements Parcelable {
-    public int quantity;
+    public float quantity;
     public String measure;
     public String ingredient;
 
     protected Ingredient(Parcel in) {
-        quantity = in.readInt();
+        quantity = in.readFloat();
         measure = in.readString();
         ingredient = in.readString();
     }
 
     @Override
     public void writeToParcel(Parcel out, int i) {
-        out.writeInt(quantity);
+        out.writeFloat(quantity);
         out.writeString(measure);
         out.writeString(ingredient);
     }
