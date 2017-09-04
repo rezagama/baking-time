@@ -17,6 +17,7 @@ public class Recipe implements Parcelable {
     public List<Step> steps = new ArrayList<>();
     public int servings;
     public String image;
+    public int viewType;
 
     protected Recipe(Parcel in) {
         id = in.readInt();
@@ -25,6 +26,7 @@ public class Recipe implements Parcelable {
         in.readList(steps, Step.class.getClassLoader());
         servings = in.readInt();
         image = in.readString();
+        viewType = in.readInt();
     }
 
     @Override
@@ -35,6 +37,7 @@ public class Recipe implements Parcelable {
         out.writeList(steps);
         out.writeInt(servings);
         out.writeString(image);
+        out.writeInt(viewType);
     }
 
     public static Parcelable.Creator<Recipe> CREATOR = new Parcelable.Creator<Recipe>() {
