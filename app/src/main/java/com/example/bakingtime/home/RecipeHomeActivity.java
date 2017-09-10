@@ -61,6 +61,11 @@ public class RecipeHomeActivity extends AppCompatActivity implements RecipeHomeV
     }
 
     @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         viewModel.onDestroy();
