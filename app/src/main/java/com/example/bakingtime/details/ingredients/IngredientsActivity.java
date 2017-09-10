@@ -1,11 +1,13 @@
 package com.example.bakingtime.details.ingredients;
 
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.view.MenuItem;
+import android.view.View;
 
 import com.example.bakingtime.BaseActivity;
 import com.example.bakingtime.R;
+import com.example.bakingtime.databinding.ActivityRecipeDetailBinding;
 import com.example.bakingtime.model.Recipe;
 
 import static com.example.bakingtime.home.RecipeHomeActivity.RECIPE_DATA;
@@ -18,17 +20,11 @@ public class IngredientsActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_recipe_detail);
+        DataBindingUtil.setContentView(this, R.layout.activity_recipe_detail);
         Recipe recipe = getIntent().getParcelableExtra(RECIPE_DATA);
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container, IngredientsFragment.newInstance(recipe))
+                .replace(android.R.id.content, IngredientsFragment.newInstance(recipe))
                 .commit();
         setToolbar(getString(R.string.text_recipe_ingredients));
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) onBackPressed();
-        return super.onOptionsItemSelected(item);
     }
 }

@@ -3,4 +3,6 @@
     <dimen name="dimen_padding_long">15dp</dimen>
     <dimen name="dimen_margin_medium">10dp</dimen>
     <dimen name="dimen_padding_small">5dp</dimen>
+    <dimen name="dimen_media_player_height">200dp</dimen>
+    <dimen name="dimen_margin_small">5dp</dimen>
 </resources>
