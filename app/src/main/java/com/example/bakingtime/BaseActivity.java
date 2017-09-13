@@ -36,6 +36,10 @@ public class BaseActivity extends AppCompatActivity {
         return orientation == Configuration.ORIENTATION_LANDSCAPE;
     }
 
+    public boolean isTabletDevice() {
+        return getResources().getBoolean(R.bool.isTablet);
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) onBackPressed();

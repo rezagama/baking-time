@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
     <data>
         <variable
+            name="title"
+            type="String" />
+        <variable
             name="stepDescription"
             type="String" />
     </data>
@@ -17,6 +20,14 @@
             android:orientation="vertical" />
         <TextView
             android:padding="@dimen/dimen_padding_long"
+            android:text="@{title}"
+            android:textColor="@color/colorTextPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="Title here"/>
+        <TextView
+            android:paddingLeft="@dimen/dimen_padding_long"
+            android:paddingRight="@dimen/dimen_padding_long"
             android:text="@{stepDescription}"
             android:textColor="@color/colorTextPrimary"
             android:layout_width="match_parent"
