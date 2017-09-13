@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
 
+import com.example.bakingtime.BaseActivity;
 import com.example.bakingtime.R;
 import com.example.bakingtime.databinding.ActivityRecipeHomeBinding;
 import com.example.bakingtime.deps.BakingDepsProvider;
@@ -19,8 +21,9 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-public class RecipeHomeActivity extends AppCompatActivity implements RecipeHomeView {
+public class RecipeHomeActivity extends BaseActivity implements RecipeHomeView {
     public static final String RECIPE_DATA = "recipe_data";
+    private static final int RECIPE_GRID_COLUMN = 3;
 
     private RecipeHomeViewModel viewModel;
     private ActivityRecipeHomeBinding binding;
@@ -34,7 +37,6 @@ public class RecipeHomeActivity extends AppCompatActivity implements RecipeHomeV
         super.onCreate(savedInstanceState);
         ((BakingDepsProvider) getApplicationContext()).provideAppDependencies().inject(this);
         binding = DataBindingUtil.setContentView(this, R.layout.activity_recipe_home);
-        binding.listRecipe.setLayoutManager(new LinearLayoutManager(this));
         viewModel = new RecipeHomeViewModel(service, this);
         adapter = new RecipeAdapter(getResources(), recipe -> {
             Intent intent = new Intent(this, RecipeMenuActivity.class);
@@ -42,7 +44,16 @@ public class RecipeHomeActivity extends AppCompatActivity implements RecipeHomeV
             startActivity(intent);
         });
         binding.listRecipe.setAdapter(adapter);
+        setRecipeListLayoutManager();
         viewModel.getRecipeList();
+    }
+
+    private void setRecipeListLayoutManager() {
+        if(isTabletDevice()) {
+            binding.listRecipe.setLayoutManager(new GridLayoutManager(this, RECIPE_GRID_COLUMN));
+        } else {
+            binding.listRecipe.setLayoutManager(new LinearLayoutManager(this));
+        }
     }
 
     @Override

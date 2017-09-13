@@ -48,13 +48,14 @@ public class RecipeDetailFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        binding.setTitle(step.shortDescription);
         binding.setStepDescription(step.description);
         initMediaPlayerView();
     }
 
     private void initMediaPlayerView() {
         int orientation = getResources().getConfiguration().orientation;
-        if (orientation == Configuration.ORIENTATION_PORTRAIT) {
+        if (orientation == Configuration.ORIENTATION_PORTRAIT || isTabletDevice()) {
             closeMediaPlayerFullScreen();
             getChildFragmentManager().beginTransaction()
                     .replace(R.id.container_media_player, mediaPlayer)
@@ -68,5 +69,9 @@ public class RecipeDetailFragment extends Fragment {
     private void closeMediaPlayerFullScreen() {
         getActivity().getSupportFragmentManager().popBackStack(MEDIA_FULL_SCREEN_TAG,
                 FragmentManager.POP_BACK_STACK_INCLUSIVE);
+    }
+
+    private boolean isTabletDevice() {
+        return getResources().getBoolean(R.bool.isTablet);
     }
 }
