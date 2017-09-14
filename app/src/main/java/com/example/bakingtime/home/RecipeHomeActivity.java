@@ -2,7 +2,6 @@ package com.example.bakingtime.home;
 
 import android.content.Intent;
 import android.databinding.DataBindingUtil;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +9,7 @@ import android.view.View;
 
 import com.example.bakingtime.BaseActivity;
 import com.example.bakingtime.R;
+import com.example.bakingtime.database.DBManager;
 import com.example.bakingtime.databinding.ActivityRecipeHomeBinding;
 import com.example.bakingtime.deps.BakingDepsProvider;
 import com.example.bakingtime.home.adapter.RecipeAdapter;
@@ -31,6 +31,8 @@ public class RecipeHomeActivity extends BaseActivity implements RecipeHomeView {
 
     @Inject
     NetworkService service;
+    @Inject
+    DBManager dbManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +61,8 @@ public class RecipeHomeActivity extends BaseActivity implements RecipeHomeView {
     @Override
     public void loadRecipeList(List<Recipe> recipes) {
         adapter.setRecipes(recipes);
+        dbManager.addRecipeToLocalDB(recipes);
+        dbManager.addIngredientsToLocalDB(recipes);
     }
 
     @Override

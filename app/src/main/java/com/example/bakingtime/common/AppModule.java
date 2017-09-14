@@ -2,6 +2,8 @@ package com.example.bakingtime.common;
 
 import android.content.Context;
 
+import com.example.bakingtime.database.DBManager;
+
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -24,5 +26,12 @@ public class AppModule {
     @SuppressWarnings("unused")
     public Context providesApplicationContext(){
         return context;
+    }
+
+    @Provides
+    @Singleton
+    @SuppressWarnings("unused")
+    public DBManager providesDBManager(Context context){
+        return new DBManager(context);
     }
 }
