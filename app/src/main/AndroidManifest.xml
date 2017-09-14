@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.bakingtime">
+
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".BakingApp"
         android:allowBackup="true"
@@ -13,12 +15,33 @@
         <activity android:name=".home.RecipeHomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".menu.RecipeMenuActivity" />
         <activity android:name=".details.ingredients.IngredientsActivity" />
         <activity android:name=".details.RecipeDetailActivity" />
+        <activity android:name=".widget.WidgetConfigurationActivity" />
+
+        <receiver android:name=".widget.IngredientWidgetProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/ingredient_widget_info" />
+        </receiver>
+
+        <provider
+            android:name=".database.RecipeProvider"
+            android:authorities="com.example.bakingtime.app"
+            android:exported="true" />
+
+        <service
+            android:name=".widget.IngredientWidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
     </application>
 
 </manifest>
