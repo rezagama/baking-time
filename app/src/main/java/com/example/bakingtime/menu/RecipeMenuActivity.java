@@ -16,7 +16,7 @@ import com.example.bakingtime.details.ingredients.IngredientsFragment;
 import com.example.bakingtime.model.Recipe;
 import com.example.bakingtime.model.Step;
 
-import static com.example.bakingtime.details.RecipeDetailActivity.VIEW_TYPE;
+import static com.example.bakingtime.details.RecipeDetailActivity.VIEW_POSITION;
 import static com.example.bakingtime.home.RecipeHomeActivity.RECIPE_DATA;
 import static com.example.bakingtime.menu.RecipeMenuAdapter.VIEW_TYPE_INGREDIENTS;
 
@@ -98,7 +98,7 @@ public class RecipeMenuActivity extends BaseActivity {
         } else {
             intent = new Intent(this, RecipeDetailActivity.class);
         }
-        intent.putExtra(VIEW_TYPE, position);
+        intent.putExtra(VIEW_POSITION, position);
         intent.putExtra(RECIPE_DATA, recipe);
         startActivity(intent);
     }

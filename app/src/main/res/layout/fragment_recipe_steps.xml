@@ -19,6 +19,7 @@
             android:layout_height="@dimen/dimen_media_player_height"
             android:orientation="vertical" />
         <TextView
+            android:id="@+id/text_step_title"
             android:padding="@dimen/dimen_padding_long"
             android:text="@{title}"
             android:textColor="@color/colorTextPrimary"
@@ -26,6 +27,7 @@
             android:layout_height="wrap_content"
             tools:text="Title here"/>
         <TextView
+            android:id="@+id/text_step_description"
             android:paddingLeft="@dimen/dimen_padding_long"
             android:paddingRight="@dimen/dimen_padding_long"
             android:text="@{stepDescription}"
