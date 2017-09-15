@@ -154,18 +154,4 @@ public class RecipeProvider extends ContentProvider {
     public int delete(@NonNull Uri uri, @Nullable String selection, @Nullable String[] selectionArgs) {
         return 0;
     }
-
-//
-//    public void addMovieToFavorite(){
-//        ContentValues data = new ContentValues();
-//        data.put(MovieContract.MovieEntry.COLUMN_MOVIE_ID, movie.id);
-//        data.put(MovieContract.MovieEntry.COLUMN_MOVIE_TITLE, movie.title);
-//        data.put(MovieContract.MovieEntry.COLUMN_MOVIE_RELEASE_DATE, movie.releaseDate);
-//        data.put(MovieContract.MovieEntry.COLUMN_MOVIE_AVERAGE_VOTE, movie.voteAverage);
-//        data.put(MovieContract.MovieEntry.COLUMN_MOVIE_SYNOPSIS, movie.overview);
-//
-//        getContentResolver().insert(MovieContract.MovieEntry.CONTENT_URI, data);
-//        Toast.makeText(this, getString(R.string.text_added_to_favorites), Toast.LENGTH_SHORT).show();
-//        setFavoriteButton();
-//    }
 }
