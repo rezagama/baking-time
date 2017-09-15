@@ -25,7 +25,7 @@ import static com.example.bakingtime.menu.RecipeMenuAdapter.VIEW_TYPE_INGREDIENT
  */
 
 public class RecipeDetailActivity extends BaseActivity implements ViewPager.OnPageChangeListener {
-    public static final String VIEW_TYPE = "position";
+    public static final String VIEW_POSITION = "position";
 
     private ActivityRecipeDetailBinding binding;
     private StepViewPagerAdapter stepAdapter;
@@ -47,9 +47,9 @@ public class RecipeDetailActivity extends BaseActivity implements ViewPager.OnPa
 
     private void setSelectedDetail(Bundle savedInstanceState) {
         if(savedInstanceState == null) {
-            position = getIntent().getIntExtra(VIEW_TYPE, VIEW_TYPE_INGREDIENTS);
+            position = getIntent().getIntExtra(VIEW_POSITION, 0);
         } else  {
-            position = savedInstanceState.getInt(VIEW_TYPE);
+            position = savedInstanceState.getInt(VIEW_POSITION);
         }
     }
 
@@ -102,7 +102,7 @@ public class RecipeDetailActivity extends BaseActivity implements ViewPager.OnPa
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putInt(VIEW_TYPE, position);
+        outState.putInt(VIEW_POSITION, position);
     }
 
     @Override

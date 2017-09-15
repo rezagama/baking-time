@@ -23,8 +23,15 @@ public class TestUtils {
         List<Step> steps = new ArrayList<>();
         Step step = new Step();
         step.id = 1;
+        step.videoURL = "https://d17h27t6h515a5.cloudfront.net/topher/2017/April/58ffdc43_1-melt-choclate-chips-and-butter-brownies/1-melt-choclate-chips-and-butter-brownies.mp4";
         step.shortDescription = "Chopin Potatoe";
         step.description = "Chop d Potatoe";
+        steps.add(step);
+
+        step = new Step();
+        step.id = 2;
+        step.shortDescription = "All your Base";
+        step.description = "Belongs to Us";
         steps.add(step);
 
         Recipe recipe = new Recipe();

@@ -67,6 +67,7 @@ public class RecipeMenuAdapter extends RecyclerView.Adapter<RecipeMenuAdapter.Re
             if(position != VIEW_TYPE_INGREDIENTS) {
                 Step step = recipe.steps.get(position - 1);
                 binding.setMenuTitle(step.shortDescription);
+                binding.setImageUrl(step.thumbnailURL);
             } else {
                 binding.setMenuTitle(res.getString(R.string.text_recipe_ingredients));
             }

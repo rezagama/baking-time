@@ -40,4 +40,8 @@ public class RecipeItemViewModel extends BaseObservable {
         return res.getQuantityString(R.plurals.item_recipe_steps,
                 recipe.steps.size(), recipe.steps.size());
     }
+
+    public String getRecipeImage() {
+        return recipe.image;
+    }
 }
